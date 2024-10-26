@@ -20,4 +20,14 @@ public class Player extends MapItem {
     public Player(int x, int y, char symbol) {
         super(x, y, symbol);
     }
+
+    // Getters and setters
+
+    public char getSymbol() {
+        return super.getSymbol();
+    }
+
+    public void setSymbol(char symbol) {
+        super.setSymbol(symbol);
+    }
 }
