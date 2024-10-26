@@ -5,7 +5,7 @@ package src.digitaltreasurehuntapp;
  */
 
 public class DigitalTreasureHuntApp {
+    
     public static void main(String[] args) {
-
     }
 }

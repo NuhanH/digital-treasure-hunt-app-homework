@@ -6,9 +6,12 @@ package src.treasurehunt;
  */
 
 public class Frog extends Breaker{
+    private int live;
+
     // Default constructor
     public Frog() {
         super();
+        this.live = -1;
     }
 
     // Copy constructor
@@ -17,17 +20,14 @@ public class Frog extends Breaker{
     }
 
     // Parameterized constructor
-    public Frog(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Frog(int x, int y) {
+        super(x, y, 'F');
+        this.live = -1;
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
-    }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
+    public int getLive() {
+        return live;
     }
 }

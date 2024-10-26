@@ -1,35 +1,51 @@
 package src.treasurehunt;
 
+import java.util.ArrayList;
+
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
  */
 
 public class Booster extends MapItem {
+    private ArrayList<MapItem> boosterItems;
+
     // Default constructor
     public Booster() {
-        super();
+        super(0, 0, 'O');
+        this.boosterItems = new ArrayList<>();
+
+        // Add booster items
+        this.boosterItems.add(new Diamond());
+        this.boosterItems.add(new Coin());
+        this.boosterItems.add(new Treasure());
     }
 
     // Copy constructor
     public Booster(Booster booster) {
         super(booster);
+        this.boosterItems = new ArrayList<>();
+
+        for (MapItem item : booster.boosterItems) {
+            this.boosterItems.add(item);
+        }
     }
 
     // Parameterized constructor
     public Booster(int x, int y, char symbol) {
         super(x, y, symbol);
+        this.boosterItems = new ArrayList<>();
+
+        // Add booster items
+        this.boosterItems.add(new Diamond());
+        this.boosterItems.add(new Coin());
+        this.boosterItems.add(new Treasure());
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
+    // Get booster items array list.
+    public ArrayList<MapItem> getBoosterItems() {
+        return this.boosterItems;
     }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
-    }
-
-
 }

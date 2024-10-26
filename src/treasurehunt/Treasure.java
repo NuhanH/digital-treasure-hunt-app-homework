@@ -7,9 +7,12 @@ package src.treasurehunt;
  */
 
 public class Treasure extends Booster {
+    private int live;
+
     // Default constructor
     public Treasure() {
         super();
+        this.live = 1;
     }
 
     // Copy constructor
@@ -18,17 +21,14 @@ public class Treasure extends Booster {
     }
 
     // Parameterized constructor
-    public Treasure(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Treasure(int x, int y) {
+        super(x, y, 'T');
+        this.live = 1;
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
-    }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
+    public int getLive() {
+        return live;
     }
 }

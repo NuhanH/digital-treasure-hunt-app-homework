@@ -6,9 +6,10 @@ package src.treasurehunt;
  */
 
 public class Player extends MapItem {
+
     // Default constructor
     public Player() {
-        super();
+        super(0, 0, 'P');
     }
 
     // Copy constructor
@@ -17,17 +18,10 @@ public class Player extends MapItem {
     }
 
     // Parameterized constructor
-    public Player(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Player(int x, int y) {
+        super(x, y, 'P');
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
-    }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
-    }
 }

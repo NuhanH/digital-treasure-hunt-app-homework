@@ -6,9 +6,12 @@ package src.treasurehunt;
  */
 
 public class Mushroom extends Breaker{
+    private int point;
+
     // Default constructor
     public Mushroom() {
-        super();
+        super(0, 0, 'M');
+        this.point = -20;
     }
 
     // Copy constructor
@@ -17,17 +20,14 @@ public class Mushroom extends Breaker{
     }
 
     // Parameterized constructor
-    public Mushroom(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Mushroom(int x, int y) {
+        super(x, y, 'M');
+        this.point = -20;
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
-    }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
+    public int getPoint() {
+        return point;
     }
 }

@@ -32,7 +32,8 @@ public class MapItem {
         this.x = x;
         this.y = y;
         this.symbol = symbol;
-        this.isOccupied = false;
+
+        this.isOccupied = true;
     }
 
     // Getters and setters

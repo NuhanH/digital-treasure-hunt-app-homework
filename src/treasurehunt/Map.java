@@ -52,7 +52,4 @@ public class Map {
     public void setMapItem(int x, int y, MapItem mapItem) {
         map.get(y).set(x, mapItem);
     }
-
-
-
 }

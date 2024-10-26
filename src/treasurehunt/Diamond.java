@@ -6,10 +6,12 @@ package src.treasurehunt;
  */
 
 public class Diamond extends Booster {
+    private int point;
 
     // Default constructor
     public Diamond() {
-        super();
+        super(0, 0, 'D');
+        point = 10;
     }
 
     // Copy constructor
@@ -18,17 +20,12 @@ public class Diamond extends Booster {
     }
 
     // Parameterized constructor
-    public Diamond(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Diamond(int x, int y) {
+        super(x, y, 'D');
+        this.point = 10;
     }
 
-    // Getters and setters
-
-    public char getSymbol() {
-        return super.getSymbol();
-    }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
+    public int getPoint() {
+        return point;
     }
 }

@@ -6,29 +6,29 @@ package src.treasurehunt;
  */
 
 public class Coin extends Booster {
+    private int point;
 
     // Default constructor
     public Coin() {
-        super();
+        super(0, 0, 'C');
+        point = 5;
     }
 
     // Copy constructor
     public Coin(Coin coin) {
         super(coin);
+        this.point = coin.point;
     }
 
     // Parameterized constructor
-    public Coin(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Coin(int x, int y) {
+        super(x, y, 'C');
+        this.point = 5;
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
-    }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
+    public int getPoint() {
+        return point;
     }
 }

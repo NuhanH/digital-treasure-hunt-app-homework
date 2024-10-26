@@ -1,34 +1,50 @@
 package src.treasurehunt;
 
+import java.util.ArrayList;
+
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
  */
 
 public class Breaker extends MapItem{
+    private ArrayList<MapItem> breakerItems;
+
     // Default constructor
     public Breaker() {
-        super();
+        super(0, 0, 'X');
+
+        this.breakerItems = new ArrayList<>();
+
+        // Add breaker items
+        this.breakerItems.add(new Frog());
+        this.breakerItems.add(new Mushroom());
     }
 
     // Copy constructor
     public Breaker(Breaker breaker) {
         super(breaker);
+        this.breakerItems = new ArrayList<>();
+
+        for (MapItem item : breaker.breakerItems) {
+            this.breakerItems.add(item);
+        }
     }
 
     // Parameterized constructor
     public Breaker(int x, int y, char symbol) {
         super(x, y, symbol);
+        this.breakerItems = new ArrayList<>();
+
+        // Add breaker items
+        this.breakerItems.add(new Frog());
+        this.breakerItems.add(new Mushroom());
     }
 
     // Getters and setters
 
-    public char getSymbol() {
-        return super.getSymbol();
+    // Get breaker items array list.
+    public ArrayList<MapItem> getBreakerItems() {
+        return this.breakerItems;
     }
-
-    public void setSymbol(char symbol) {
-        super.setSymbol(symbol);
-    }
-
 }
