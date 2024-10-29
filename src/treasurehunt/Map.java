@@ -13,6 +13,13 @@ public class Map {
     // Default constructor
     public Map() {
         this.map = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            ArrayList<MapItem> row = new ArrayList<>();
+            for (int j = 0; j < 20; j++) {
+                row.add(new MapItem(j, i, '_'));
+            }
+            this.map.add(row);
+        }
     }
     
     // Copy constructor
@@ -52,4 +59,63 @@ public class Map {
     public void setMapItem(int x, int y, MapItem mapItem) {
         map.get(y).set(x, mapItem);
     }
+    
+    // In this method, we generate random map items and place them to the mapItems array list and return it.
+    public ArrayList<MapItem> generateMapItems() {
+       
+        // Generate random map items
+        ArrayList<MapItem> mapItems = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Coin coin = new Coin(); 
+            mapItems.add(coin);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Diamond diamond = new Diamond();
+            mapItems.add(diamond);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            Treasure treasure = new Treasure();
+            mapItems.add(treasure);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            Frog frog = new Frog();
+            mapItems.add(frog);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Mushroom mushroom = new Mushroom();
+            mapItems.add(mushroom);
+        }
+
+            Breaker breaker = new Breaker();
+            mapItems.add(breaker);
+
+            Booster booster = new Booster();
+            mapItems.add(booster);
+
+        return mapItems;
+
+    }
+
+    // Randomly generate a position for the map item and return it.
+    public int[] generateRandomMapPosition() {
+        int x = (int) (Math.random() * 20);
+        int y = (int) (Math.random() * 20);
+        int[] position = new int[2];
+
+        // Check if the position is occupied
+        if (getMapItem(x, y).isOccupied()) {
+            generateRandomMapPosition();
+        } else {
+            getMapItem(x, y).setOccupied(true);
+            position[0] = x;
+            position[1] = y; 
+        }
+
+        return position;
+    }
+
 }

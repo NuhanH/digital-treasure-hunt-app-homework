@@ -7,30 +7,31 @@ package src.treasurehunt;
 
 public class MapItem {
     private char symbol;
-    private int x;
-    private int y;
     private boolean isOccupied;
+    private int[] mapPosition = new int[2]; /** We used an array to store the position of the map item 
+                                             *as index 0 for x and index 1 for y.
+                                             */
 
     // Default constructor
     public MapItem() {
-        this.x = 0;
-        this.y = 0;
+        mapPosition[0] = 0;
+        mapPosition[1] = 0;
         this.symbol = '_';
         this.isOccupied = false;
     }
 
     // Copy constructor
     public MapItem(MapItem mapItem) {
-        this.x = mapItem.x;
-        this.y = mapItem.y;
+        mapPosition[0] = mapItem.mapPosition[0];
+        mapPosition[1] = mapItem.mapPosition[1];
         this.symbol = mapItem.symbol;
         this.isOccupied = mapItem.isOccupied;
     }
 
     // Parameterized constructor
     public MapItem(int x, int y, char symbol) {
-        this.x = x;
-        this.y = y;
+        mapPosition[0] = x;
+        mapPosition[1] = y;
         this.symbol = symbol;
 
         this.isOccupied = true;
@@ -54,13 +55,16 @@ public class MapItem {
         isOccupied = occupied;
     }
 
-    public int getX() {
-        return x;
+    public int[] getPosition() {
+        return mapPosition;
     }
 
-    public int getY() {
-        return y;
+    public void setPosition(int x, int y) {
+        mapPosition[0] = x;
+        mapPosition[1] = y;
     }
+
+
 
     
 }
