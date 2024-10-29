@@ -101,18 +101,17 @@ public class Map {
     }
 
     // Randomly generate a position for the map item and return it.
-    public int[] generateRandomMapPosition() {
+    public int[] generateRandomMapPosition(boolean isPlayer) {
         int x = (int) (Math.random() * 20);
         int y = (int) (Math.random() * 20);
         int[] position = new int[2];
 
         // Check if the position is occupied
-        if (getMapItem(x, y).isOccupied()) {
-            generateRandomMapPosition();
+        if (getMapItem(x, y).isOccupied() && !isPlayer) {
+            generateRandomMapPosition(false);
         } else {
-            getMapItem(x, y).setOccupied(true);
             position[0] = x;
-            position[1] = y; 
+            position[1] = y;
         }
 
         return position;
