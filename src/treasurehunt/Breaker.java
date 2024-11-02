@@ -32,8 +32,8 @@ public class Breaker extends MapItem{
     }
 
     // Parameterized constructor
-    public Breaker(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Breaker(int x, int y) {
+        super(x, y, 'X');
         this.breakerItems = new ArrayList<>();
 
         // Add breaker items

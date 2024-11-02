@@ -17,6 +17,7 @@ public class Diamond extends MapItem {
     // Copy constructor
     public Diamond(Diamond diamond) {
         super(diamond);
+        this.point = diamond.point;
     }
 
     // Parameterized constructor

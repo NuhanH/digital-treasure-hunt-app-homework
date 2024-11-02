@@ -59,6 +59,9 @@ public class Map {
 
     public void setMapItem(int x, int y, MapItem mapItem) {
         map.get(y).set(x, mapItem);
+        if (mapItem.getSymbol() != '_') {
+            mapItem.setOccupied(true);
+        }
     }
     
     // In this method, we generate random map items and place them to the mapItems array list and return it.

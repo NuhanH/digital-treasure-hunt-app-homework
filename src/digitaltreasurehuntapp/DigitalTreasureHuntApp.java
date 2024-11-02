@@ -25,9 +25,14 @@ public class DigitalTreasureHuntApp {
         ArrayList<MapItem> mapItems = map.generateMapItems();
 
         for (MapItem mapItem : mapItems) {
-            int[] position = map.generateRandomMapPosition(false);
+            int[] position;
+            do {
+                position = map.generateRandomMapPosition(false);
+            } while (map.getMapItem(position[0], position[1]).isOccupied());
+
             mapItem.setPosition(position[0], position[1]);
             mapItem.setOccupied(true);
+            map.setMapItem(position[0], position[1], mapItem);
         }
         return map;
     }
@@ -46,17 +51,22 @@ public class DigitalTreasureHuntApp {
             // The player moves to a random position on the map.
             int[] newPosition = map.generateRandomMapPosition(true);
 
+            if (newPosition[0] == player.getPosition()[0] && newPosition[1] == player.getPosition()[1]) {
+                continue;
+            }
+
             // We handle the player position and interactions.
             handlePlayerPosition(map, player, newPosition);
+            System.out.println();
             map.printMap();
         }
+        System.out.println("Lives: " + player.getLives() + " Points: " + player.getPoints());
     }
 
     // This method handles the player position and interactions.
     private void handlePlayerPosition(Map map, Player player, int[] position) {
-        // We update the player's old position as unoccupied and change the symbol to '_'.
-        map.getMapItem(player.getPosition()[0], player.getPosition()[1]).setOccupied(false);
-        map.getMapItem(player.getPosition()[0], player.getPosition()[1]).setSymbol('_');   
+        Player copyPlayer = new Player(player);
+        int[] oldPosition = copyPlayer.getPosition();
 
         // If the new position is occupied, we handle the player interaction.
         if (map.getMapItem(position[0], position[1]).isOccupied()) {
@@ -68,9 +78,14 @@ public class DigitalTreasureHuntApp {
 
         // We update the player's position on the map.
         player.setPosition(position[0], position[1]);
+        Player newPlayer = new Player(player);
+
+        // We update the player's old position as unoccupied and change the symbol to '_'.
+        map.getMapItem(oldPosition[0], oldPosition[1]).setOccupied(false);
+        map.getMapItem(oldPosition[0], oldPosition[1]).setSymbol('_');   
 
         // We update the player's new position as occupied and set the symbol as 'P'.
         map.getMapItem(position[0], position[1]).setOccupied(true);
-        map.setMapItem(position[0], position[1], player);
+        map.setMapItem(position[0], position[1], newPlayer);
     }
 }

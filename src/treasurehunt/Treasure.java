@@ -11,13 +11,14 @@ public class Treasure extends MapItem {
 
     // Default constructor
     public Treasure() {
-        super();
+        super(0, 0, 'T');
         this.live = 1;
     }
 
     // Copy constructor
     public Treasure(Treasure treasure) {
         super(treasure);
+        this.live = treasure.live;
     }
 
     // Parameterized constructor

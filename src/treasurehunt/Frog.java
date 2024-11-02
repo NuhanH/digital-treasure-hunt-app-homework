@@ -10,19 +10,20 @@ public class Frog extends MapItem {
 
     // Default constructor
     public Frog() {
-        super();
-        this.live = -1;
+        super(0, 0, 'F');
+        this.live = 1;
     }
 
     // Copy constructor
     public Frog(Frog frog) {
         super(frog);
+        this.live = frog.live;
     }
 
     // Parameterized constructor
     public Frog(int x, int y) {
         super(x, y, 'F');
-        this.live = -1;
+        this.live = 1;
     }
 
     // Getters and setters

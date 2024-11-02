@@ -32,8 +32,8 @@ public class Booster extends MapItem {
     }
 
     // Parameterized constructor
-    public Booster(int x, int y, char symbol) {
-        super(x, y, symbol);
+    public Booster(int x, int y) {
+        super(x, y, 'O');
         this.boosterItems = new ArrayList<>();
 
         // Add booster items
