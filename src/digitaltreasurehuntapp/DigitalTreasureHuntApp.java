@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import src.treasurehunt.Map;
 import src.treasurehunt.MapItem;
 import src.treasurehunt.Player;
+import src.treasurehunt.Score;
 
 /**
  * @author Mert Deniz Ertekin
@@ -79,9 +80,13 @@ public class DigitalTreasureHuntApp {
         // If the new position is occupied, we handle the player interaction.
         if (map.getMapItem(position[0], position[1]).isOccupied()) {
             MapItem mapItem = map.getMapItem(position[0], position[1]);
+
             mapItem.playerInteraction(player);
             map.removeMapItem(mapItem);
             map.setMapItem(position[0], position[1], new MapItem(position[0], position[1], '_'));
+
+            Score score = handleScore(copyPlayer, oldPosition, position);
+
 
         }
 
@@ -95,5 +100,14 @@ public class DigitalTreasureHuntApp {
         // We update the player's new position as occupied and set the symbol as 'P'.
         map.getMapItem(position[0], position[1]).setOccupied(true);
         map.setMapItem(position[0], position[1], newPlayer);
+    }
+
+    private Score handleScore(Player player, int[] oldPosition, int[] newPosition) {
+        Score score = new Score();
+        score.setScore(player.getPoints());
+        score.setOldPosition(oldPosition);
+        score.setNewPosition(newPosition);
+
+        return score;
     }
 }
