@@ -108,6 +108,11 @@ public class Map {
         return mapItems;
     }
 
+    public void removeMapItem(MapItem mapItem) {
+        mapItems.remove(mapItem);
+
+    }
+
     // Randomly generate a position for the map item and return it.
     public int[] generateRandomMapPosition(boolean isPlayer) {
         int x = (int) (Math.random() * 20);
