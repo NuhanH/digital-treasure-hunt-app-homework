@@ -11,7 +11,7 @@ public class Player extends MapItem {
 
     // Default constructor
     public Player() {
-        super(0, 0, 'P');
+        super(-1, -1, 'P');
         this.points = 100;
         this.lives = 2;
     }

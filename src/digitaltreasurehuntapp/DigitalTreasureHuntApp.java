@@ -39,7 +39,9 @@ public class DigitalTreasureHuntApp {
 
     // In this method, we implement the game loop.
     private void gameLoop(Map map) {
+    
         Player player = new Player();
+
         // The player starts at a random position on the map.
         int[] playerPosition = map.generateRandomMapPosition(true);
 
@@ -47,6 +49,7 @@ public class DigitalTreasureHuntApp {
         handlePlayerPosition(map, player, playerPosition);
 
         // The game loop continues until the player runs out of lives or points.
+        int i = 0;
         while (player.getLives() > 0 && player.getPoints() > 0 && map.getMapItems().size() > 0) {
             // The player moves to a random position on the map.
             int[] newPosition = map.generateRandomMapPosition(true);
@@ -59,12 +62,21 @@ public class DigitalTreasureHuntApp {
             handlePlayerPosition(map, player, newPosition);
             System.out.println();
             map.printMap();
+            i += 1;
+
+            if (i == 10000) {
+                System.out.println();   
+            }
         }
         System.out.println("Lives: " + player.getLives() + " Points: " + player.getPoints());
     }
 
     // This method handles the player position and interactions.
     private void handlePlayerPosition(Map map, Player player, int[] position) {
+        if (player.getPosition()[0] == -1 || player.getPosition()[1] == -1) {
+            player.setPosition(position[0], position[1]);
+        }
+
         Player copyPlayer = new Player(player);
         int[] oldPosition = copyPlayer.getPosition();
 
