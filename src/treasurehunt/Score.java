@@ -52,5 +52,8 @@ public class Score {
         this.newPosition = newPosition;
     }
 
+    public String toString() {
+        return score + ", (" + oldPosition[0] + "," + oldPosition[1] + "), (" + newPosition[0] + "," + newPosition[1] + ")";
+    }
 
 }

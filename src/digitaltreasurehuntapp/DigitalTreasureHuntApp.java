@@ -1,6 +1,7 @@
 package src.digitaltreasurehuntapp;
 
 import java.util.ArrayList;
+import src.fileio.Scoreboard;
 import src.treasurehunt.Map;
 import src.treasurehunt.MapItem;
 import src.treasurehunt.Player;
@@ -16,8 +17,10 @@ public class DigitalTreasureHuntApp {
     public static void main(String[] args) {
         DigitalTreasureHuntApp app = new DigitalTreasureHuntApp();
         Map map = app.generateDefaultMap();
-        app.gameLoop(map);
-        
+        Scoreboard scoreboard = new Scoreboard();
+        app.gameLoop(map, scoreboard);
+        scoreboard.saveToFile("resources/scoreboard.txt");
+        scoreboard.getHighestScore();
     }
 
     // In this method, we generate a default map with default map items.
@@ -39,7 +42,7 @@ public class DigitalTreasureHuntApp {
     }
 
     // In this method, we implement the game loop.
-    private void gameLoop(Map map) {
+    private void gameLoop(Map map, Scoreboard scoreboard) {
     
         Player player = new Player();
 
@@ -47,7 +50,7 @@ public class DigitalTreasureHuntApp {
         int[] playerPosition = map.generateRandomMapPosition(true);
 
         // We handle the player position and interactions.
-        handlePlayerPosition(map, player, playerPosition);
+        handlePlayerPosition(map, player, playerPosition, scoreboard);
 
         // The game loop continues until the player runs out of lives or points.
         
@@ -60,16 +63,15 @@ public class DigitalTreasureHuntApp {
             }
 
             // We handle the player position and interactions.
-            handlePlayerPosition(map, player, newPosition);
+            handlePlayerPosition(map, player, newPosition, scoreboard);
             System.out.println();
-            map.printMap();  
-            
+            map.printMap();
         }
         System.out.println("Lives: " + player.getLives() + " Points: " + player.getPoints());
     }
 
     // This method handles the player position and interactions.
-    private void handlePlayerPosition(Map map, Player player, int[] position) {
+    private void handlePlayerPosition(Map map, Player player, int[] position, Scoreboard scoreboard) {
         if (player.getPosition()[0] == -1 || player.getPosition()[1] == -1) {
             player.setPosition(position[0], position[1]);
         }
@@ -86,8 +88,7 @@ public class DigitalTreasureHuntApp {
             map.setMapItem(position[0], position[1], new MapItem(position[0], position[1], '_'));
 
             Score score = handleScore(copyPlayer, oldPosition, position);
-
-
+            scoreboard.addScore(score);
         }
 
         // We update the player's position on the map.
