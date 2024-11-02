@@ -49,7 +49,7 @@ public class DigitalTreasureHuntApp {
         handlePlayerPosition(map, player, playerPosition);
 
         // The game loop continues until the player runs out of lives or points.
-        int i = 0;
+        
         while (player.getLives() > 0 && player.getPoints() > 0 && map.getMapItems().size() > 0) {
             // The player moves to a random position on the map.
             int[] newPosition = map.generateRandomMapPosition(true);
@@ -61,12 +61,8 @@ public class DigitalTreasureHuntApp {
             // We handle the player position and interactions.
             handlePlayerPosition(map, player, newPosition);
             System.out.println();
-            map.printMap();
-            i += 1;
-
-            if (i == 10000) {
-                System.out.println();   
-            }
+            map.printMap();  
+            
         }
         System.out.println("Lives: " + player.getLives() + " Points: " + player.getPoints());
     }
@@ -93,9 +89,8 @@ public class DigitalTreasureHuntApp {
         player.setPosition(position[0], position[1]);
         Player newPlayer = new Player(player);
 
-        // We update the player's old position as unoccupied and change the symbol to '_'.
-        map.getMapItem(oldPosition[0], oldPosition[1]).setOccupied(false);
-        map.getMapItem(oldPosition[0], oldPosition[1]).setSymbol('_');   
+        // We update the player's old position as empty map item.
+        map.setMapItem(oldPosition[0], oldPosition[1], new MapItem(oldPosition[0], oldPosition[1], '_'));  
 
         // We update the player's new position as occupied and set the symbol as 'P'.
         map.getMapItem(position[0], position[1]).setOccupied(true);

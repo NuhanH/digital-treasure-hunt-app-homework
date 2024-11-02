@@ -56,5 +56,13 @@ public class Breaker extends MapItem{
         for (MapItem item : this.breakerItems) {
             item.playerInteraction(player);
         }
+
+        if(player.getPoints() < 0){
+            player.setPoints(0);
+        }
+
+        if(player.getLives() < 0){
+            player.setLives(0);
+        }
     }
 }

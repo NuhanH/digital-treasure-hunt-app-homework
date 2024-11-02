@@ -35,6 +35,10 @@ public class Player extends MapItem {
     public int getPoints() {
         return points;
     }
+    
+    public void setPoints(int points) {
+        this.points = points;
+    }
 
     public void addPoints(int points) {
         this.points += points;
@@ -46,6 +50,10 @@ public class Player extends MapItem {
 
     public int getLives() {
         return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 
     public void addLives(int lives) {

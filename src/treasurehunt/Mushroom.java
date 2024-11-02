@@ -36,5 +36,8 @@ public class Mushroom extends MapItem {
     @Override
     public void playerInteraction(Player player) {
         player.removePoints(getPoint());
+        if (player.getPoints() < 0) {
+            player.setPoints(0);
+        }
     }
 }

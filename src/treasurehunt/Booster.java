@@ -57,5 +57,6 @@ public class Booster extends MapItem {
         for (MapItem item : this.boosterItems) {
             item.playerInteraction(player);
         }
+
     }
 }

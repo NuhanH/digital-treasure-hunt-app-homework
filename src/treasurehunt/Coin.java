@@ -36,5 +36,7 @@ public class Coin extends MapItem {
     @Override
     public void playerInteraction(Player player) {
         player.addPoints(getPoint());
+
     }
+
 }
