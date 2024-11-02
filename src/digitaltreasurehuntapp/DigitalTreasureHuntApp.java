@@ -16,6 +16,7 @@ public class DigitalTreasureHuntApp {
         DigitalTreasureHuntApp app = new DigitalTreasureHuntApp();
         Map map = app.generateDefaultMap();
         app.gameLoop(map);
+        
     }
 
     // In this method, we generate a default map with default map items.
@@ -41,26 +42,28 @@ public class DigitalTreasureHuntApp {
         handlePlayerPosition(map, player, playerPosition);
 
         // The game loop continues until the player runs out of lives or points.
-        while (player.getLives() > 0 && player.getPoints() > 0) {
+        while (player.getLives() > 0 && player.getPoints() > 0 && map.getMapItems().size() > 1) {
             // The player moves to a random position on the map.
             int[] newPosition = map.generateRandomMapPosition(true);
 
             // We handle the player position and interactions.
             handlePlayerPosition(map, player, newPosition);
+            map.printMap();
         }
     }
 
     // This method handles the player position and interactions.
     private void handlePlayerPosition(Map map, Player player, int[] position) {
+        // We update the player's old position as unoccupied and change the symbol to '_'.
+        map.getMapItem(player.getPosition()[0], player.getPosition()[1]).setOccupied(false);
+        map.getMapItem(player.getPosition()[0], player.getPosition()[1]).setSymbol('_');   
 
         // If the new position is occupied, we handle the player interaction.
         if (map.getMapItem(position[0], position[1]).isOccupied()) {
             MapItem mapItem = map.getMapItem(position[0], position[1]);
             mapItem.playerInteraction(player);
+            map.setMapItem(position[0], position[1], new MapItem(position[0], position[1], '_'));
 
-            // We update the player's old position as unoccupied and change the symbol to '_'.
-            map.getMapItem(player.getPosition()[0], player.getPosition()[1]).setOccupied(false);
-            map.getMapItem(player.getPosition()[0], player.getPosition()[1]).setSymbol('_');
         }
 
         // We update the player's position on the map.

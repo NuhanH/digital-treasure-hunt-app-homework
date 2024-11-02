@@ -5,7 +5,7 @@ package src.treasurehunt;
  * @author Nuhan Berke Hallaç
  */
 
-public class Diamond extends Booster {
+public class Diamond extends MapItem {
     private int point;
 
     // Default constructor

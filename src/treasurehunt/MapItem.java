@@ -33,8 +33,12 @@ public class MapItem {
         mapPosition[0] = x;
         mapPosition[1] = y;
         this.symbol = symbol;
-
-        this.isOccupied = true;
+        if (symbol != '_'){
+            this.isOccupied = true;
+        }
+        else {
+            this.isOccupied = false;
+        }
     }
 
     // Getters and setters

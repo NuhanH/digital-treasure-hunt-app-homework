@@ -29,7 +29,7 @@ public class Player extends MapItem {
         this.points = 100;
         this.lives = 2;
     }
-
+ 
     // Getters and setters
 
     public int getPoints() {

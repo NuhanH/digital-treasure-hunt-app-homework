@@ -5,7 +5,7 @@ package src.treasurehunt;
  * @author Nuhan Berke Hallaç
  */
 
-public class Mushroom extends Breaker{
+public class Mushroom extends MapItem {
     private int point;
 
     // Default constructor

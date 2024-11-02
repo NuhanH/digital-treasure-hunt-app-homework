@@ -6,7 +6,7 @@ package src.treasurehunt;
  * @author Nuhan Berke Hallaç
  */
 
-public class Treasure extends Booster {
+public class Treasure extends MapItem {
     private int live;
 
     // Default constructor

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Map {
     private ArrayList<ArrayList<MapItem>> map;
+    private ArrayList<MapItem> mapItems;
 
     // Default constructor
     public Map() {
@@ -64,7 +65,7 @@ public class Map {
     public ArrayList<MapItem> generateMapItems() {
        
         // Generate random map items
-        ArrayList<MapItem> mapItems = new ArrayList<>();
+        mapItems = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Coin coin = new Coin(); 
             mapItems.add(coin);
@@ -100,6 +101,10 @@ public class Map {
 
     }
 
+    public ArrayList<MapItem> getMapItems() {
+        return mapItems;
+    }
+
     // Randomly generate a position for the map item and return it.
     public int[] generateRandomMapPosition(boolean isPlayer) {
         int x = (int) (Math.random() * 20);
@@ -107,14 +112,24 @@ public class Map {
         int[] position = new int[2];
 
         // Check if the position is occupied
+        boolean isOccupied = getMapItem(x, y).isOccupied();
         if (getMapItem(x, y).isOccupied() && !isPlayer) {
-            generateRandomMapPosition(false);
+            position = generateRandomMapPosition(false);
         } else {
             position[0] = x;
             position[1] = y;
         }
 
         return position;
+    }
+
+    public void printMap() {
+        for (ArrayList<MapItem> row : map) {
+            for (MapItem mapItem : row) {
+                System.out.print(mapItem.getSymbol() + " ");
+            }
+            System.out.println();
+        }
     }
 
 }

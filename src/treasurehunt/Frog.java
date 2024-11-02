@@ -5,7 +5,7 @@ package src.treasurehunt;
  * @author Nuhan Berke Hallaç
  */
 
-public class Frog extends Breaker{
+public class Frog extends MapItem {
     private int live;
 
     // Default constructor
