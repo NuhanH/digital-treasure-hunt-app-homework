@@ -47,4 +47,14 @@ public class Breaker extends MapItem{
     public ArrayList<MapItem> getBreakerItems() {
         return this.breakerItems;
     }
+
+    /*  This method is called when a player interacts with a breaker and calls the 
+     *  playerInteraction method of each breaker item. 
+     */
+    @Override
+    public void playerInteraction(Player player) {
+        for (MapItem item : this.breakerItems) {
+            item.playerInteraction(player);
+        }
+    }
 }

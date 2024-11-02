@@ -30,4 +30,10 @@ public class Frog extends Breaker{
     public int getLive() {
         return live;
     }
+
+    @Override
+    // This method is called when a player interacts with a frog and removes a life from the player.
+    public void playerInteraction(Player player) {
+        player.removeLives(getLive());
+    }
 }

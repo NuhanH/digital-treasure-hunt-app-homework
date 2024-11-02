@@ -31,4 +31,10 @@ public class Coin extends Booster {
     public int getPoint() {
         return point;
     }
+
+    // This method is called when a player interacts with a coin and adds points to the player.
+    @Override
+    public void playerInteraction(Player player) {
+        player.addPoints(getPoint());
+    }
 }

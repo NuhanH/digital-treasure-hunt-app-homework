@@ -64,7 +64,9 @@ public class MapItem {
         mapPosition[1] = y;
     }
 
-
-
+    // Method to implement player interaction but this method will be overridden in the subclasses.
+    public void playerInteraction(Player player) {
+        // Implement player interaction here
+    }
     
 }

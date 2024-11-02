@@ -48,4 +48,14 @@ public class Booster extends MapItem {
     public ArrayList<MapItem> getBoosterItems() {
         return this.boosterItems;
     }
+
+    /*  This method is called when a player interacts with a booster and calls the 
+     *  playerInteraction method of each booster item. 
+     */
+    @Override
+    public void playerInteraction(Player player) {
+        for (MapItem item : this.boosterItems) {
+            item.playerInteraction(player);
+        }
+    }
 }

@@ -31,4 +31,10 @@ public class Treasure extends Booster {
     public int getLive() {
         return live;
     }
+
+    // This method is called when a player interacts with a treasure and adds a live to the player.
+    @Override
+    public void playerInteraction(Player player) {
+        player.addLives(getLive());
+    }
 }
