@@ -11,8 +11,8 @@ import src.treasurehunt.Score;
 import src.treasurehunt.Scoreboard;
 
 /**
- * @author mertdenizertekin
- * @author nuhanberkehallac
+ * @author Mert Deniz Ertekin
+ * @author Nuhan Berke Hallaç
  */
 public class FileIO {
     // In this class, we implement the file writing operations.

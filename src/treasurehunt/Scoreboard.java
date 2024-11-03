@@ -7,7 +7,7 @@ public class Scoreboard {
 
     // Default constructor
     public Scoreboard() {
-        scores = new ArrayList<Score>();
+        scores = new ArrayList<>();
     }
 
     // Copy constructor
@@ -27,7 +27,11 @@ public class Scoreboard {
     }
 
     public ArrayList<Score> getScores() {
-        return scores;
+        ArrayList<Score> copyArrayList = new ArrayList<>();
+        for (Score score : scores) {
+            copyArrayList.add(new Score(score));
+        }
+        return copyArrayList;
     }
 
     public void getHighestScore () {

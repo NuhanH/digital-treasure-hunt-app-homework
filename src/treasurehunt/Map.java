@@ -49,8 +49,17 @@ public class Map {
 
     // Getters and setters
 
+    // This method returns a deep copy of the map.
     public ArrayList<ArrayList<MapItem>> getMap() {
-        return map;
+        ArrayList<ArrayList<MapItem>> copyArrayList = new ArrayList<>();
+        for (ArrayList<MapItem> row : map) {
+            ArrayList<MapItem> newRow = new ArrayList<>();
+            for (MapItem mapItem : row) {
+                newRow.add(new MapItem(mapItem));
+            }
+            copyArrayList.add(newRow);
+        }
+        return copyArrayList;
     }
 
     public MapItem getMapItem(int x, int y) {
@@ -101,7 +110,6 @@ public class Map {
             mapItems.add(booster);
 
         return mapItems;
-
     }
 
     public ArrayList<MapItem> getMapItems() {
@@ -110,7 +118,6 @@ public class Map {
 
     public void removeMapItem(MapItem mapItem) {
         mapItems.remove(mapItem);
-
     }
 
     // Randomly generate a position for the map item and return it.
@@ -120,15 +127,18 @@ public class Map {
         int[] position = new int[2];
 
         // Check if the position is occupied
-        boolean isOccupied = getMapItem(x, y).isOccupied();
         if (getMapItem(x, y).isOccupied() && !isPlayer) {
             position = generateRandomMapPosition(false);
         } else {
             position[0] = x;
             position[1] = y;
         }
+        int[] copyPosition = new int[2];
 
-        return position;
+        copyPosition[0] = position[0];
+        copyPosition[1] = position[1];
+
+        return copyPosition;
     }
 
     public void printMap() {

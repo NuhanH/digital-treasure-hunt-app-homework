@@ -54,7 +54,7 @@ public class Booster extends MapItem {
      */
     @Override
     public void playerInteraction(Player player) {
-        for (MapItem item : this.boosterItems) {
+        for (MapItem item : getBoosterItems()) {
             item.playerInteraction(player);
         }
 

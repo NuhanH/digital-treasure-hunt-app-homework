@@ -8,6 +8,7 @@ import src.treasurehunt.Scoreboard;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallac
+ * 
  */
 
 public class DigitalTreasureHuntApp {
@@ -17,7 +18,7 @@ public class DigitalTreasureHuntApp {
         Map map = gameManager.generateDefaultMap();
         Scoreboard scoreboard = new Scoreboard();
         FileIO fileIO = new FileIO();
-        
+
         gameManager.gameLoop(map, scoreboard);
         fileIO.writeFile("resources/scoreboard.txt", scoreboard);
         scoreboard.getHighestScore();

@@ -60,7 +60,10 @@ public class MapItem {
     }
 
     public int[] getPosition() {
-        return mapPosition;
+        int[] copyPosition = new int[2];
+        copyPosition[0] = mapPosition[0];
+        copyPosition[1] = mapPosition[1];
+        return copyPosition;
     }
 
     public void setPosition(int x, int y) {

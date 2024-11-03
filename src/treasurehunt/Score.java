@@ -37,7 +37,11 @@ public class Score {
     }
 
     public int[] getOldPosition() {
-        return oldPosition;
+        int[] copyPosition = new int[2];
+        copyPosition[0] = oldPosition[0];
+        copyPosition[1] = oldPosition[1];
+
+        return copyPosition;
     }
 
     public void setOldPosition(int[] oldPosition) {
@@ -45,7 +49,11 @@ public class Score {
     }
 
     public int[] getNewPosition() {
-        return newPosition;
+        int[] copyPosition = new int[2];
+        copyPosition[0] = newPosition[0];
+        copyPosition[1] = newPosition[1];
+
+        return copyPosition;
     }
 
     public void setNewPosition(int[] newPosition) {

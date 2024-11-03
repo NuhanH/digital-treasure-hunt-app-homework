@@ -75,6 +75,8 @@ public class GameManager {
         // If the new position is occupied, we handle the player interaction.
         if (map.getMapItem(position[0], position[1]).isOccupied()) {
             MapItem mapItem = map.getMapItem(position[0], position[1]);
+            
+            int oldPoints = player.getPoints();
 
             // We handle the player interaction, remove the map item and 
             // update the position with an empty map item to prepare for adding the player later
@@ -83,9 +85,13 @@ public class GameManager {
             map.setMapItem(position[0], position[1], new MapItem());
             map.getMapItem(position[0], position[1]).setPosition(position[0], position[1]);
 
-            // We create a score object and add it to the scoreboard.
-            Score score = handleScore(copyPlayer, oldPosition, position);
-            scoreboard.addScore(score);
+            int newPoints = player.getPoints();
+
+            // We create a score object and add it to the scoreboard if the player's points have changed.
+            if (oldPoints != newPoints) {
+                Score score = handleScore(copyPlayer, oldPosition, position);
+                scoreboard.addScore(score);
+            }
         }
 
         // We update the player's position on the map.
