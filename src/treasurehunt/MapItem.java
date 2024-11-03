@@ -3,6 +3,11 @@ package src.treasurehunt;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ *
+ * This class is the parent class of the subclasses that will be used to create the map items.
+ * It contains the basic attributes and methods that will be used by the subclasses.
+ * The subclasses will inherit the attributes and methods of this class.
+ * The subclasses will override the playerInteraction method to implement their own interaction.
  */
 
 public class MapItem {

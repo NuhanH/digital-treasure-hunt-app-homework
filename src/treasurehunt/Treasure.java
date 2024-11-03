@@ -4,6 +4,8 @@ package src.treasurehunt;
  *
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ * 
+ * Represents a treasure item on the map that a player can interact with to gain lives.
  */
 
 public class Treasure extends MapItem {

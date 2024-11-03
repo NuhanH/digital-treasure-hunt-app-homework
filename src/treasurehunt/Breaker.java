@@ -5,6 +5,10 @@ import java.util.ArrayList;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ * 
+ * The Breaker class represents a MapItem containing multiple breaker items like Frog and Mushroom.
+ * It provides constructors for initialization and a method to interact with a player by 
+   invoking each breaker item's interaction.
  */
 
 public class Breaker extends MapItem{

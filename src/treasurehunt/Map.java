@@ -5,6 +5,9 @@ import java.util.ArrayList;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ * 
+ * This class represents the map of the game. It contains the map items and the methods to interact with them.
+ * The map is a 20x20 grid that contains the map items.
  */
 
 public class Map {
@@ -72,48 +75,13 @@ public class Map {
             mapItem.setOccupied(true);
         }
     }
-    
-    // In this method, we generate random map items and place them to the mapItems array list and return it.
-    public ArrayList<MapItem> generateMapItems() {
-       
-        // Generate random map items
-        mapItems = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Coin coin = new Coin(); 
-            mapItems.add(coin);
-        }
-
-        for (int i = 0; i < 5; i++) {
-            Diamond diamond = new Diamond();
-            mapItems.add(diamond);
-        }
-
-        for (int i = 0; i < 2; i++) {
-            Treasure treasure = new Treasure();
-            mapItems.add(treasure);
-        }
-
-        for (int i = 0; i < 2; i++) {
-            Frog frog = new Frog();
-            mapItems.add(frog);
-        }
-
-        for (int i = 0; i < 5; i++) {
-            Mushroom mushroom = new Mushroom();
-            mapItems.add(mushroom);
-        }
-
-            Breaker breaker = new Breaker();
-            mapItems.add(breaker);
-
-            Booster booster = new Booster();
-            mapItems.add(booster);
-
-        return mapItems;
-    }
 
     public ArrayList<MapItem> getMapItems() {
         return mapItems;
+    }
+
+    public void setMapItems(ArrayList<MapItem> mapItems) {
+        this.mapItems = mapItems;
     }
 
     public void removeMapItem(MapItem mapItem) {

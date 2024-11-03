@@ -5,6 +5,10 @@ import java.util.ArrayList;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ * 
+ * The Booster class represents a MapItem containing multiple booster items like Diamond, Coin, and Treasure.
+ * It provides constructors for initialization and a method to interact with a player by 
+   invoking each booster item's interaction.
  */
 
 public class Booster extends MapItem {

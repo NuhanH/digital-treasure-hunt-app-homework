@@ -16,7 +16,8 @@ public class GameManager {
     // In this method, we generate a default map with default map items.
     public Map generateDefaultMap() {
         Map map = new Map();
-        ArrayList<MapItem> mapItems = map.generateMapItems();
+        generateMapItems(map);
+        ArrayList<MapItem> mapItems = map.getMapItems();
 
     // We randomly place the map items on the map.
         for (MapItem mapItem : mapItems) {
@@ -33,6 +34,46 @@ public class GameManager {
             map.setMapItem(position[0], position[1], mapItem);
         }
         return map;
+    }
+
+    // In this method, we generate random map items and place them to the mapItems array list and return it.
+    public void generateMapItems(Map map) {
+       
+        ArrayList<MapItem> tempMapItems = new ArrayList<>();
+        
+        // Generate random map items
+        for (int i = 0; i < 10; i++) {
+            Coin coin = new Coin(); 
+            tempMapItems.add(coin);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Diamond diamond = new Diamond();
+            tempMapItems.add(diamond);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            Treasure treasure = new Treasure();
+            tempMapItems.add(treasure);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            Frog frog = new Frog();
+            tempMapItems.add(frog);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Mushroom mushroom = new Mushroom();
+            tempMapItems.add(mushroom);
+        }
+
+            Breaker breaker = new Breaker();
+            tempMapItems.add(breaker);
+
+            Booster booster = new Booster();
+            tempMapItems.add(booster);
+
+            map.setMapItems(tempMapItems);
     }
 
     // In this method, we implement the game loop.

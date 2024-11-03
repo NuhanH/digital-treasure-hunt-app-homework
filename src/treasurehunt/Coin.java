@@ -3,6 +3,8 @@ package src.treasurehunt;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ * 
+ *  Represents a coin item on the map that a player can interact with to gain points.
  */
 
 public class Coin extends MapItem {

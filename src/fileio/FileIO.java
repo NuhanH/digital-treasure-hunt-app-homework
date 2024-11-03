@@ -13,9 +13,12 @@ import src.treasurehunt.Scoreboard;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ *
+ * In this class, we implement the file writing operations.
  */
 public class FileIO {
-    // In this class, we implement the file writing operations.
+
+    // Method to write the scoreboard to a file
     public void writeFile(String filePath, Scoreboard scoreboard) {
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write("Score,Old Position,New Position\n");

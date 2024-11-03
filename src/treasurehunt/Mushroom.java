@@ -3,6 +3,8 @@ package src.treasurehunt;
 /**
  * @author Mert Deniz Ertekin
  * @author Nuhan Berke Hallaç
+ * 
+ * Represents a mushroom item on the map that a player can interact with to lose points.
  */
 
 public class Mushroom extends MapItem {
