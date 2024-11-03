@@ -29,8 +29,7 @@ public class Treasure extends MapItem {
         this.live = 1;
     }
 
-    // Getters and setters
-
+    // This method returns the live value of the treasure.
     public int getLive() {
         return live;
     }

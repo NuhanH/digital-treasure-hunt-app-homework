@@ -36,6 +36,7 @@ public class Score {
         this.score = score;
     }
 
+    // This method returns a copy of the old position.
     public int[] getOldPosition() {
         int[] copyPosition = new int[2];
         copyPosition[0] = oldPosition[0];
@@ -48,6 +49,7 @@ public class Score {
         this.oldPosition = oldPosition;
     }
 
+    // This method returns a copy of the new position.
     public int[] getNewPosition() {
         int[] copyPosition = new int[2];
         copyPosition[0] = newPosition[0];
@@ -60,6 +62,8 @@ public class Score {
         this.newPosition = newPosition;
     }
 
+    // This method returns the score in a formatted string.
+    @Override
     public String toString() {
         return score + "," + "(" + oldPosition[0] + "," + oldPosition[1] + "),(" + newPosition[0] + "," + newPosition[1] + ")";
     }

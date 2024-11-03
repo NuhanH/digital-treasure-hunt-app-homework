@@ -80,18 +80,20 @@ public class Map {
         return mapItems;
     }
 
+    // This method sets the map items of the map.
     public void setMapItems(ArrayList<MapItem> mapItems) {
         this.mapItems = mapItems;
     }
 
+    // This method removes a map item from the map.
     public void removeMapItem(MapItem mapItem) {
         mapItems.remove(mapItem);
     }
 
     // Randomly generate a position for the map item and return it.
     public int[] generateRandomMapPosition(boolean isPlayer) {
-        int x = (int) (Math.random() * 20);
-        int y = (int) (Math.random() * 20);
+        int x = (int) (Math.random() * getMap().get(0).size());
+        int y = (int) (Math.random() * getMap().get(1).size());
         int[] position = new int[2];
 
         // Check if the position is occupied
@@ -109,6 +111,7 @@ public class Map {
         return copyPosition;
     }
 
+    // This method prints the maps current state.
     public void printMap() {
         for (ArrayList<MapItem> row : map) {
             for (MapItem mapItem : row) {

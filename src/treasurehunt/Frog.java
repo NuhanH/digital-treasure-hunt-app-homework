@@ -28,8 +28,7 @@ public class Frog extends MapItem {
         this.live = 1;
     }
 
-    // Getters and setters
-
+    // This method returns the live value of the frog.
     public int getLive() {
         return live;
     }

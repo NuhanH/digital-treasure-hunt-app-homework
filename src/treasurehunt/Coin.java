@@ -28,8 +28,7 @@ public class Coin extends MapItem {
         this.point = 5;
     }
 
-    // Getters and setters
-
+    // This method returns the point value of the coin.
     public int getPoint() {
         return point;
     }

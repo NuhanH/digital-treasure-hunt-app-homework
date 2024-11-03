@@ -28,8 +28,7 @@ public class Mushroom extends MapItem {
         this.point = 20;
     }
 
-    // Getters and setters
-
+    // This method returns the point value of the mushroom.
     public int getPoint() {
         return point;
     }

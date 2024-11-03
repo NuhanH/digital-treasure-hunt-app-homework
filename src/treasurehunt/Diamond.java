@@ -28,6 +28,7 @@ public class Diamond extends MapItem {
         this.point = 10;
     }
 
+    // This method returns the point value of the diamond.
     public int getPoint() {
         return point;
     }

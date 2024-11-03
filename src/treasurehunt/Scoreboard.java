@@ -34,13 +34,13 @@ public class Scoreboard {
         return copyArrayList;
     }
 
-    public void getHighestScore () {
+    public void getHighestScore() {
         int highestScore = 0;
         for (Score score : scores) {
             if (score.getScore() > highestScore) {
                 highestScore = score.getScore();
             }
         }
-        System.out.println("The highest score is: " + highestScore);
+        System.out.println("\nThe highest score is: " + highestScore + "\n");
     }
 }
