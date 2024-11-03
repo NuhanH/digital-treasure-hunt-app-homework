@@ -1,11 +1,12 @@
 package src.digitaltreasurehuntapp;
 
 import java.util.ArrayList;
-import src.fileio.Scoreboard;
+import src.fileio.FileIO;
 import src.treasurehunt.Map;
 import src.treasurehunt.MapItem;
 import src.treasurehunt.Player;
 import src.treasurehunt.Score;
+import src.treasurehunt.Scoreboard;
 
 /**
  * @author Mert Deniz Ertekin
@@ -18,8 +19,9 @@ public class DigitalTreasureHuntApp {
         DigitalTreasureHuntApp app = new DigitalTreasureHuntApp();
         Map map = app.generateDefaultMap();
         Scoreboard scoreboard = new Scoreboard();
+        FileIO fileIO = new FileIO();
         app.gameLoop(map, scoreboard);
-        scoreboard.saveToFile("resources/scoreboard.txt");
+        fileIO.writeFile("resources/scoreboard.txt", scoreboard);
         scoreboard.getHighestScore();
     }
 
@@ -67,7 +69,6 @@ public class DigitalTreasureHuntApp {
             System.out.println();
             map.printMap();
         }
-        System.out.println("Lives: " + player.getLives() + " Points: " + player.getPoints());
     }
 
     // This method handles the player position and interactions.
