@@ -7,7 +7,7 @@ package src.treasurehunt;
  *  Represents a coin item on the map that a player can interact with to gain points.
  */
 
-public class Coin extends MapItem {
+public class Coin extends Booster {
     private int point;
 
     // Default constructor

@@ -7,7 +7,7 @@ package src.treasurehunt;
  * Represents a diamond item on the map that a player can interact with to gain points.
  */
 
-public class Diamond extends MapItem {
+public class Diamond extends Booster {
     private int point;
 
     // Default constructor

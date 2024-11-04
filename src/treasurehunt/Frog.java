@@ -7,7 +7,7 @@ package src.treasurehunt;
  * Represents a frog item on the map that a player can interact with to lose lives.
  */
 
-public class Frog extends MapItem {
+public class Frog extends Breaker {
     private int live;
 
     // Default constructor

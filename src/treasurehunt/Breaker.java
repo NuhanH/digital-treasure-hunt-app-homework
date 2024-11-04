@@ -36,13 +36,15 @@ public class Breaker extends MapItem{
     }
 
     // Parameterized constructor
-    public Breaker(int x, int y) {
-        super(x, y, 'X');
-        this.breakerItems = new ArrayList<>();
-
+    public Breaker(int x, int y, char symbol) {
+        super(x, y, symbol);
+        
         // Add breaker items
-        this.breakerItems.add(new Frog());
-        this.breakerItems.add(new Mushroom());
+        if (symbol == 'X') {
+            this.breakerItems = new ArrayList<>();
+            this.breakerItems.add(new Frog());
+            this.breakerItems.add(new Mushroom());
+        }
     }
 
     // Getters and setters

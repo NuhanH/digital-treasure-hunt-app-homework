@@ -8,7 +8,7 @@ package src.treasurehunt;
  * Represents a treasure item on the map that a player can interact with to gain lives.
  */
 
-public class Treasure extends MapItem {
+public class Treasure extends Booster {
     private int live;
 
     // Default constructor

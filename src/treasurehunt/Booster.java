@@ -36,14 +36,16 @@ public class Booster extends MapItem {
     }
 
     // Parameterized constructor
-    public Booster(int x, int y) {
-        super(x, y, 'O');
-        this.boosterItems = new ArrayList<>();
+    public Booster(int x, int y, char symbol) {
+        super(x, y, symbol);
 
         // Add booster items
-        this.boosterItems.add(new Diamond());
-        this.boosterItems.add(new Coin());
-        this.boosterItems.add(new Treasure());
+        if (symbol == 'O') {
+            this.boosterItems = new ArrayList<>();
+            this.boosterItems.add(new Diamond());
+            this.boosterItems.add(new Coin());
+            this.boosterItems.add(new Treasure());
+        }
     }
 
     // Getters and setters
